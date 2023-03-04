@@ -1,2 +1,2 @@
 # KGE-Technologies-Task-6
-Sample Description
+Preview:  https://satyajeetghosh.github.io/KGE-Technologies-Task-6/
