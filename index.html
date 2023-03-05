@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6</title>
+</head>
+<body>
+    <p>Press m to open an app (Microsoft Store) <br> Press tab to open a new tab <br> Press Enter for fullscreen <br> Win + d should not be able to minimize browser tab</p>
+
+    <div id="info"></div>
+
+    <script>
+        //1. Opens Microsoft Store App
+        document.addEventListener("keydown", function(event){
+            
+            if(event.key === "M" | event.key === "m"){
+                console.error("opening an app");
+                window.open("ms-windows-store://home");
+            }
+        });
+
+        //2.
+        // document.addEventListener('keydown', function(event) {
+        // if (event.key === 'g') {
+        //         var tabs = document.querySelectorAll('.tab');
+        //         var activeTab = document.querySelector('.tab.active');
+        //         var nextTabIndex = Array.from(tabs).indexOf(activeTab) + 1;
+        //         if (nextTabIndex >= tabs.length) {
+        //             nextTabIndex = 0;
+        //         }
+        //         var nextTab = tabs[nextTabIndex];
+        //         activeTab.classList.remove('active');
+        //         nextTab.classList.add('active');
+        //     }
+        // });
+
+        let counter = 0;
+        document.addEventListener('visibilitychange', () => {
+            document.title = document.visibilityState
+            if (document.hidden){
+                counter += 1
+                //document.getElementById('info').innerHTML = "The Browser Tab Has been changed or minimized"
+
+                console.error("The browser tab was changed or minmized " + counter + " times");
+            }
+        })
+
+        //3
+       
+
+        //4. Opening a new tab
+        document.addEventListener("keydown", function(event){
+            if(event.key === "Tab"){
+                window.open("https://www.google.com", "_blank");
+                console.error("You opened a new tab");
+            }
+        });
+
+        //5. Convert it to fullscreen
+        document.addEventListener("keydown", function(event){
+            if(event.key === "Enter"){
+                console.error("Enter Key was pressed and you're now in Fullscreen mode");
+                if (document.fullscreenElement) {
+                document.exitFullscreen();
+                } else {
+                    document.documentElement.requestFullscreen();
+                }
+            }
+        });
+
+         //6.
+        document.addEventListener('keydown', function(event) {
+        if (event.code === 'KeyW' && event.key === 'd') {
+                console.error("You tried to minimize the tab")
+                event.preventDefault();
+                alert('You cannot minimize the window.');
+            }
+        });
+
+        //7. Check whether you're in desktop mode or not 
+        window.onload = function() {
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|tablet|Opera Mini/i.test(navigator.userAgent);
+        if (isMobile) {
+            alert("You are not in desktop mode.");
+            }
+        };
+
+        //8. Consoles an error if right click is detected
+        document.addEventListener('contextmenu', function(event) {
+            console.error('Right Click detected!');
+        });
+
+        //9. Consoles an error when Ctrl, Alt or F12 key is pressed
+        document.addEventListener("keydown", function(event) {
+            if (event.ctrlKey) {
+                console.error("Ctrl key was pressed.");
+            }
+            if (event.altKey){
+                console.error("Alt key was pressed");
+            }
+            if (event.keyCode === 123){
+                console.error("F12 key was pressed");
+            }
+        });
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
