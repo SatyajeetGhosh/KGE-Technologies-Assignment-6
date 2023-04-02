@@ -14,7 +14,7 @@
 <li>Pressing ctrl, alt key, or any function key.</li>
 </ol>
 
-<p>I was asked to use CHrome Browser only</p>
+<p>I was asked to use Chrome Browser only</p>
 
 <p><a href="https://satyajeetghosh.github.io/KGE-Technologies-Assignment-6/" target="_blank">Click here</a> for a preview or go to https://satyajeetghosh.github.io/KGE-Technologies-Assignment-6/</p>
 
